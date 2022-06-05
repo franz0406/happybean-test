@@ -1,0 +1,21 @@
+body, button {
+  font-family: '돋움','dotum',sans-serif;
+  font-size: 12px; 
+  
+  * {
+    box-sizing: border-box;
+  }
+
+  #wrap {
+    background: #f4f4f4;  
+  }
+
+   .blind {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+  }
+}

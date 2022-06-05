@@ -1,0 +1,70 @@
+%container-padding {
+  padding-left: 15px;
+  padding-right: 15px;
+} 
+
+%letter-spacing-6 {
+  letter-spacing: -0.06rem;
+}
+
+%letter-spacing-4 {
+  letter-spacing: -0.04rem;
+}
+
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  color: $black;
+}
+
+.blind {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+}
+
+.space {
+  margin: 0;
+  height: 10px;
+  background: $gray100;  
+  border: none;
+  border-top: 1px solid $border-gray;
+  border-bottom: 1px solid $border-gray;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: $border-gray;
+}
+
+.hb_btn {
+  margin: 10px 0;
+  @extend %letter-spacing-6;
+
+  &.large {
+    width: 100%;
+
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 51px;
+    background: $primary;
+  }
+
+  &.medium {
+    width: 100%;
+    font-size: 15px;
+    line-height: 40px;
+    border: 1px solid $border-gray;
+    box-sizing: border-box;
+    
+    &[aria-selected="true"] { 
+      color: #fff;
+      border: 0;
+      background: $primary;
+    }
+  }
+}

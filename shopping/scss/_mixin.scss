@@ -1,0 +1,13 @@
+@mixin ellipsis-line2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+@mixin sprite($x, $y) {
+  background-image: url(../images/sprites.png);
+  background-repeat: no-repeat;
+  background-position: $x $y;  
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@6/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="./css/happybean.css">
+  <script src="https://unpkg.com/swiper@6/swiper-bundle.min.js"></script>
+  <title>해피빈</title>
+</head>
+<body>
+  <div id="wrap">
+    <!-- HEADER -->
+    <header>
+      <div class="header_top">
+        <div class="inner">
+          <a href="#" class="n_link" aria-label="네이버 바로가기">
+            <span class="blind">네이버</span>
+          </a>
+          <h1>
+            <a href="#" class="hb_link" ><span class="blind">해피빈</span></a>
+          </h1>
+          <a href="#" class="hb_mypage" aria-label="my page">MY</a>
+        </div>
+      </div>
+      <nav class="hb_gnb">
+        <ul role="menubar">
+          <li role="none"><a href="#" role="menuitem" aria-current="true">홈</a></li>
+          <li role="none"><a href="#" role="menuitem">기부</a></li>
+          <li role="none"><a href="#" role="menuitem">펀딩</a></li>
+          <li role="none"><a href="#" role="menuitem">정기저금</a></li>
+          <li role="none"><a href="#" role="menuitem">캠페인</a></li>
+        </ul>
+      </nav> 
+    </header>
+    <!-- // Header -->
+    <!-- Main -->
+    <main>
+      <!-- Banner -->
+      <section class="banner">
+        <div class="inner">
+          <div class="title">
+            <h2>멸종위기종보호</h2>
+            <strong>평생 잊을 수 없는 공포에 놓인 로힝야 아이들</strong>
+          </div>
+          <div class="link">
+            <a href="#">세이브더칠드런</a>
+            <button type="button" class="info_btn" aria-label="정보보기"></button>
+          </div>
+          <div class="graph">
+            <p class="objective">9,900,000원 목표</p>
+            <div class="graph_bar">
+              <span></span>
+            </div>
+            <div class="graph_info">
+              <span class="blind">목표 달성율</span>
+              <span class="percent">70%</span>
+              <span class="blind">남은 목표 금액</span>
+              <span class="amount"><em>2,611,700</em>원</span>
+              <span class="date"><b>124</b>일 남음</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- // Baner -->
+      <!-- Fundrasing Tap Menu -->
+      <section class="fundraising_tab">
+        <h2 class="blind">모금사연</h2>
+        <ul class="tab_menu" role="tablist" aria-label="모금정보">
+          <li class="tab_list" role="none">
+            <button id="tab_btn1" type="button" role="tab" aria-selected="true" aria-controls="tab_contents1">모금소개</button>
+          </li>
+          <li class="tab_list" role="none">
+            <button id="tab_btn2" type="button" role="tab" aria-selected="false" aria-controls="tab_contents2">모금소식</button>
+          </li>
+          <li class="tab_list" role="none">
+            <button id="tab_btn3" type="button" role="tab" aria-selected="false" aria-controls="tab_contents3">최종후기</button>
+          </li>
+        </ul>
+        <div id="tab_item1" class="tab_item" role="tabpanel" aria-labelledby="tab_btn1" tabindex="0">
+          <article>
+            <h2 class="blind">모금 소개 내용</h2>
+            <div class="tab_contents">
+              <img src="./images/swallow.png" alt="세 마리의 제비가 둥지 안에 모여있습니다.">
+              <strong>제비는 왜 돌아오지 않을까요?</strong>
+              <p>
+                혹시 서울에서 제비를 본 적이 있나요? 봄이면 찾아와 처마 밑에 둥지를 짓고 새끼를 낳아 기르며 우리와 함께 했던 제비가 어느 순간 부터인가 그 모습을 찾기가 점점 어려워 졌습니다. 서울시의 보호종이자 IUCN(세계자연 보전연맹) 관심 필요종이기도 한 제비는 현재 서울 에서는 일부 지역에서만 관찰할 수 있습니다.
+              </p>
+              <strong>제비가 사라져 가고 있어요.</strong>
+              <p>
+                급격한 도시 개발로  인한 서식지 파괴, 둥지 재료의 감소, 먹이 부족등으로 점점 제비가 살아 가기 힘들어 지고 있습니다. 또한 이러한 현상은 비단 우리나라 에만 국한되지 않고 지구 온난화와 심각한 환경오염 으로 신음하는 지구 전체의 문제이기도 합니다. 전 세계를 비행하는 제비에게 있어서 급격한 서식 환 경의 변화는 생존의 위협 을 가하는 요인일 것입니다.
+              </p>
+            </div>
+            <div class="share">
+              <button type="button" aria-label="공유하기"></button>
+            </div>
+          </article>
+        </div>
+        <div id="tab_contents2" class="tab_item" role="tabpanel" aria-labelledby="tab_btn2" tabindex="-1"></div>
+        <div id="tab_contents3" class="tab_item" role="tabpanel" aria-labelledby="tab_btn3" tabindex="-1"></div>
+      </section>
+      <hr class="space">
+      <!-- // Fundrasing Tap Menu -->
+      <!-- Donation Tap Menu -->
+      <section class="donation_tab">
+        <h2 class="blind">기부하기</h2>
+        <ul class="tab_menu" role="tablist" aria-label="기부종류">
+          <li class="tab_list" role="none">
+            <button class="hb_btn medium" id="tab_donate_btn1" type="button" role="tab" aria-selected="true" aria-controls="tab_item1">결제기부</button>
+          </li>
+          <li class="tab_list" role="none">
+            <button class="hb_btn medium" id="tab_donate_btn2" type="button" role="tab" aria-selected="false" aria-controls="tab_item2">보유금액기부</button>
+          </li>
+        </ul>
+        <div id="tab_contents1" class="tab_item" role="tabpanel" aria-labelledby="tab_donate_btn1" tabindex="0">
+          <form action="#">
+            <fieldset>
+              <legend id="donate" class="blind">결제기부</legend>
+              <ul role="radiogroup" aria-labelledby="donate">
+                 <li role="none" class="radio_list">
+                   <div class="hb_input radio">
+                     <input type="radio" id="once" name="donate" checked>
+                     <label for="once">1회 기부</label>
+                   </div>
+                 </li>
+                 <li role="none" class="radio_list">
+                  <div class="hb_input radio">
+                    <input type="radio" id="Monthly" name="donate">
+                    <label for="Monthly">매월 정기기부</label>
+                    <p class="desc"><span>2018.1</span> (다음 결제일:2018.02.05)</p>
+                  </div>
+                 </li>
+              </ul>
+              <hr>
+              <button type="button" class="hb_select_btn" aria-expanded="false">10,000</button>
+              <div class="hb_terms">
+                <div class="input_wrap">
+                  <input type="checkbox" id="terms_agree" required>
+                  <label for="terms_agree">유료이용약관동의</label>
+                </div>
+                <a href="#">내용보기 <span aria-hidden="true">&gt;</span></a>
+              </div>
+            </fieldset>
+            <div class="donate_amount">
+              <p>
+                총 기부액
+                <span>10,000</span>
+                원
+              </p>
+            </div>
+            <div class="donate_btn">
+              <button type="submit" class="hb_btn large">기부하기</button>
+            </div>
+          </form>
+        </div>
+        <div id="tab_item2" class="tab_item" role="tabpanel" aria-labelledby="tab_donate_btn2" tabindex="-1"></div>
+      </section>
+      <!-- // Donation Tap Menu -->
+      <!-- Donation details -->
+      <section class="donation_details">
+        <h2 class="blind">모금함</h2>
+        <details>
+          <summary>모금함 상세 정보</summary>
+          <div class="inner">
+            <strong>기부금 사용계획</strong>
+            <p>생계비<span><em>4,900,000</em>원</span></p>
+            <p>주거비<span><em>5,000,000</em>원</span></p>
+          </div>
+        </details>
+      </section>
+      <!-- // Donation details -->
+      <!-- More info -->
+      <section class="more_info">
+        <h2>관련사진</h2>
+        <div class="image_swiper">
+          <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+              <img src="./images/slide_img_01.png" alt="멀리서 바라본 홍수에 피해를 입은 동네">
+            </li>
+            <li class="swiper-slide">
+              <img src="./images/slide_img_02.png" alt="홍수에 피해를 입은 마을 사람들">
+            </li>
+            <li class="swiper-slide">
+              <img src="./images/slide_img_01.png" alt="멀리서 바라본 홍수에 피해를 입은 동네">
+            </li>
+          </ul>
+        </div>
+        <ul class="tab_menu" role="tablist" aria-label="기부내역 및 응원댓글">
+          <li class="tab_list" role="none">
+            <button type="button" class="donate_btn" role="tab" aria-selected="false">기부내역</button>
+          </li>
+          <li class="tab_list" role="none">
+            <button type="button" class="comment_btn" role="tab" aria-selected="false">응원댓글<span>5</span></button>
+          </li>
+        </ul>
+        <hr class="space">
+      </section>
+      <!-- // More info -->
+    </main>
+    <!-- // Main -->
+  </div>
+  <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,612 @@
+@import './reset';
+
+.wrap {
+  padding: 0 30px;
+  * {
+    box-sizing: border-box;
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  main.layout {
+    // common css
+    h2 {
+      font-size: 28px;
+      padding: 20px;
+      margin: 40px 0 20px 0;
+      border-bottom: 2px solid black;
+    }
+    h3 {
+      font-size: 24px;
+      margin: 15px 0;
+    }
+    h4 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    .desc {
+      p {
+        padding: 5px 0;
+      }
+      strong {
+        font-size: 14px;
+        color: #920000;
+      }
+      em {
+        font-weight: bold;
+        color: #001692;
+      }
+    }
+    ul, ol {
+      li {
+        padding: 10px 0;
+      }
+    }
+    .box {
+      padding: 30px;
+      border: 1px solid #000;
+      background: #acacac;
+      word-break: break-all;
+    }
+    hr {
+      border: none;
+      border: 2px solid #ddd;
+    }
+    .clear {
+      &::after{
+        display: block;
+        content: "";
+        clear: both;
+      }
+    } // common css ends
+      
+    section {
+      &.step1 { // step1
+        width: 900px;
+  
+        .inline_block {     
+          font-size: 0;
+          .box {
+            font-size: 16px;
+            display: inline-block;
+            &:first-of-type {
+              width: 300px;
+              height: 200px;
+            }
+            &:last-of-type {
+              width: 600px;
+              height: 200px;
+            }
+          }
+        }
+  
+        .float {
+          overflow: auto;
+          .box {
+            border: 1px solid #000;
+            &:first-of-type {
+              float: left;
+              width: 300px;
+              height: 200px;
+            }
+            &:last-of-type {
+              float: left;
+              width: 600px;
+              height: 200px;
+            }
+          }
+        }
+  
+        .table {
+          display: table;
+          .box {
+            &:first-of-type {
+              display: table-cell;
+              width: 300px;
+              height: 200px;
+            }
+            &:last-of-type {
+              display: table-cell;
+              width: 600px;
+              height: 200px;
+            }
+          }
+        }
+      }
+      &.step2 { // step2
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+  
+        .flex {
+          display: flex;
+          .box {
+            &:first-of-type {
+              width: 300px;
+              height: 200px;
+            }
+            &:last-of-type {
+              flex: 1;
+              height: 200px;
+            }
+          }
+        }
+  
+        .float {
+          width: 100%;
+          border: 1px solid #000;
+          .box {
+            &:first-of-type {
+              float: left;
+              width: 300px;
+              height: 200px;
+            }
+            &:last-of-type {
+              float: left;
+              width: calc(100% - 300px);
+              height: 200px;
+            }
+          }
+        }
+  
+        .grid {
+          display: grid;
+          grid-template-columns: 300px 1fr;
+          height: 200px;
+          .box {
+            border: 1px solid #000;
+          }
+        }
+      }
+  
+      &.step3 { // step 3
+        
+        .float {
+          position: relative;
+          .box {
+            float: left;
+            &:first-of-type {
+              width: 300px;
+            }
+            &:last-of-type {
+              position: absolute;
+              top: 0; right: 0; bottom: 0;
+              width: calc(100% - 300px);
+            }
+          }
+        }
+  
+        .flex {
+          display: flex;
+          .box {
+            &:first-of-type {
+              width: 300px;
+            }
+            &:last-of-type {
+              flex: 1;
+            }
+          }
+        }
+  
+        .grid {
+          display: grid;
+          grid-template-columns: 300px 1fr;
+          .box {
+            &:first-of-type {
+              width: 300px;
+            }
+          }
+        }
+      }
+  
+      &.step4-1 { // step4-1
+        
+        .inline_block {
+          .box {
+            display: inline-block;
+            &:first-of-type {
+              width: calc(100% - 300px);
+              margin-right: -6px;
+            }
+            &:last-of-type {
+              width: 300px;
+            }
+          }
+        }
+  
+        .float {
+          .box {
+            float: left;
+            &:first-of-type {
+              width: calc(100% - 300px);            
+            }
+            &:last-of-type {
+              width: 300px;
+            }
+          }
+        }
+  
+        .flex {
+          display: flex;
+          .box {
+            &:first-of-type {
+              flex: 1;
+            }
+            &:last-of-type {
+              width: 300px;
+            }
+          }
+        }
+  
+        .flex_order {
+          display: flex;
+          .box {
+            &:first-of-type {
+              width: 300px;
+              order:2;
+            }
+            &:last-of-type {
+              flex: 1;
+            }
+          }
+        }
+  
+        .table {
+          display: table;
+          width: 100%;
+          .box {
+            display: table-cell;
+            &:first-of-type {
+              width: calc(100% - 300px);
+            }
+            &:last-of-type {
+              width: 300px;
+            }
+          }
+        }
+  
+        .grid {
+          display: grid;
+          grid-template-columns: 1fr 300px;
+        }
+  
+      }
+  
+      &.step4-2 { // step4-2
+        
+        .inline_block {
+          font-size: 0;
+          .box {
+            display: inline-block;
+            font-size: 16px;
+            &:first-of-type {
+              width: 70%;
+            }
+            &:last-of-type {
+              width: 30%;
+            }
+          }
+        }
+  
+        .float {
+          .box {
+            float: left;
+            &:first-of-type {
+              width: 70%;            
+            }
+            &:last-of-type {
+              width: 30%;
+            }
+          }
+        }
+  
+        .flex {
+          display: flex;
+          .box {
+            &:first-of-type {
+              flex:1;
+            }
+            &:last-of-type {
+              width: 30%;
+            }
+          }
+        }
+  
+        .table {
+          display: table;
+          width: 100%;
+          .box {
+            display: table-cell;
+            &:first-of-type {
+              width: auto;
+            }
+            &:last-of-type {
+              width: 30%;
+            }
+          }
+        }
+  
+        .grid {
+          display: grid;
+          grid-template-columns: 70% 30%;
+        }
+      }
+  
+      &.step5 { // step5
+        
+        .inline_block {
+          font-size: 0;
+          width: 100%;
+          .box {
+            display: inline-block;
+            font-size: 16px;
+            &:nth-of-type(1){
+              width: 200px;
+            }
+            &:nth-of-type(2){
+              width: calc(100% - 400px);
+            }
+            &:nth-of-type(3){
+              width: 200px;
+            }
+          }
+        }
+        
+        .float {
+          .box {
+            float: left;
+            width: 200px;
+            &:nth-of-type(2) {
+              width: calc(100% - 400px);            
+            }
+          }
+        }
+  
+        .flex {
+          display: flex;
+          .box {
+            width: 200px;
+            &:nth-of-type(2){
+              flex:1;
+            }
+          }
+        }
+  
+        .table {
+          display: table;
+          width: 100%;
+          .box {
+            display: table-cell;
+            width: 200px;
+            &:nth-of-type(2){
+              width: calc(100% - 400px);
+            }
+          }
+        }
+  
+        .grid {        
+          display: grid;
+          grid-template-columns: 200px 1fr 200px;
+        }
+      }
+  
+      &.step6-1 { // step6-1
+  
+        .inline_block {
+          font-size: 0;
+          .box {
+            display: inline-block;
+            width: calc((100% - 20px) / 3);
+            font-size: 16px;
+            & + .box {
+              margin-left: 10px;
+            }
+          }
+        }
+  
+        .float {        
+          .box {
+            float: left;
+            width: calc((100% - 20px) / 3);
+            & + .box {
+              margin-left: 10px;
+            }
+          }
+        }
+  
+        .flex {        
+          display: flex;
+          gap: 10px;
+          .box {
+            width: 100%;
+          }
+        }      
+  
+        .grid {        
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 10px;
+        }    
+      }
+  
+      &.step6-2 { // step6-2
+  
+        .inline_block {
+          font-size: 0;
+          .box {
+            display: inline-block;
+            width: calc(94% / 3);
+            font-size: 16px;
+            & + .box {
+              margin-left: 3%;
+            }
+          }
+        }
+  
+        .float {        
+          .box {
+            float: left;
+            width: calc(94% / 3);
+            & + .box {
+              margin-left: 3%;
+            }
+          }
+        }
+  
+        .flex {        
+          display: flex;
+          gap: 3%;
+          .box {
+            width: 100%;
+          }
+        }      
+  
+        .grid {        
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 3%;
+        }    
+      }
+  
+      &.step6-3 { // step6-3
+        min-width: 1024px;
+        margin: 0 auto;
+        .box {
+          width: 300px;
+        }
+        .inline_block {
+          font-size: 0;
+          .box {
+            display: inline-block;
+            font-size: 16px;
+            &:nth-child(1) {
+              margin-right: calc((100% - 900px) / 2);
+            }
+            &:nth-child(2) {
+              margin-right: calc((100% - 900px) / 2);
+            }
+          }
+        }
+  
+        .float {        
+          text-align: center;
+          .box {
+            float: left;
+            text-align: left;
+            &:nth-child(2){            
+              display: inline-block;
+              float: none;
+              text-align: left;
+            }
+            &:nth-child(3){
+              float: right;
+            }
+          }
+        }
+  
+        .flex {        
+          display: flex;
+          justify-content: space-between;
+        }      
+  
+        .grid {        
+          display: grid;
+          grid-template-columns: repeat(auto-fit, 300px);
+          justify-content: space-between;        
+        }    
+      }
+  
+      &.step6-3 { // step6-3
+        min-width: 1024px;
+        margin: 0 auto;
+        .box {
+          width: 300px;
+        }
+        .inline_block {
+          font-size: 0;
+          .box {
+            display: inline-block;
+            font-size: 16px;
+            &:nth-child(1) {
+              margin-right: calc((100% - 900px) / 2);
+            }
+            &:nth-child(2) {
+              margin-right: calc((100% - 900px) / 2);
+            }
+          }
+        }
+  
+        .float {        
+          text-align: center;
+          .box {
+            float: left;
+            text-align: left;
+            &:nth-child(2){            
+              display: inline-block;
+              float: none;
+              text-align: left;
+            }
+            &:nth-child(3){
+              float: right;
+            }
+          }
+        }
+  
+        .flex {        
+          display: flex;
+          justify-content: space-between;
+        }      
+  
+        .grid {        
+          display: grid;
+          grid-template-columns: repeat(auto-fit, 300px);
+          justify-content: space-between;        
+        }    
+      }
+
+      &.step7 {
+        .box {
+          margin: 5px 0;
+        }
+
+        .flex {
+          display: flex;          
+          .box {
+            width: 100%;
+            & + .box {
+              margin-left: 10px;
+            }
+          }
+        }
+
+        .grid {
+          display: grid;
+          grid-column-gap: 10px;
+          grid-template-columns: repeat(auto-fit, minmax(1px, 1fr));
+        }
+
+        .table {
+          display: table;
+          width: 100%;
+          margin: 5px 0;
+          .box {
+            display: table-cell;
+            padding: 0;
+            background: none;
+            border: none;
+            & + .box {
+              padding-left: 10px;
+            }
+            div {
+              padding: 30px;
+              border:1px solid #000;
+              background: #acacac;
+            }
+          }
+        }
+      }
+    }
+  }
+}

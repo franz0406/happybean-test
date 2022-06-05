@@ -1,0 +1,269 @@
+@import './reset';
+@import './variables';
+@import './common';
+@import './mixin';
+
+header {
+  
+  h1 { 
+    padding: 30px 0;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase; 
+    text-align: center;
+  }
+
+  details {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    summary {
+      padding: 20px;
+      background: #fff;
+      cursor: pointer;
+      &::marker {
+        font-size: 0;
+      }
+    }
+    pre {
+      padding-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+      background: #fff;
+    }
+  }
+} 
+
+#contents {
+  width: 940px;
+  margin: 0 auto;
+
+  .breadcrumb { // 상단 페이지 경로
+    display: inline-block;
+    padding: 20px 28px 20px 0;
+    border-bottom: 1px solid #000;
+
+    ul {
+      display: flex;
+      li {        
+
+        &:not(:last-of-type) {
+          &::after {
+            content: ">";
+            display: inline-block;
+            padding: 0 10px;
+            color: $gray100;
+          }
+          a {
+            color: $gray100;
+          }
+        }
+
+        a {
+          color: $black500;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .tab_menu { // 탭 메뉴
+    position: relative;
+    display: flex;
+    margin: 4px 0 20px;
+    border-bottom: 2px solid $border-black;
+
+    h2 {
+      position: absolute;
+      top: -50px; left: 50%;
+      transform: translateX(-50%);
+
+      font-size: 24px;
+      font-weight: bold;
+      color: $black900;
+    }
+
+    .tab_menu_list { // 탭 메뉴 리스트 버튼
+      display: flex;
+      li {
+        button {
+          position: relative;
+          width: 188px;
+          height: 48px;
+          font-size: 13px;
+          border: 1px solid $border-gray100;
+
+          &[aria-selected="true"] {
+            font-weight: bold;
+            border: none;
+
+            &::after {
+              content: "";
+              position: absolute;
+              top: 0; left: 0; right: 0;
+              height: 46px;
+              border: 2px solid $border-black;
+              border-bottom: 2px solid #f4f4f4;
+            }
+          }
+        }
+
+        &:last-of-type{
+          button {
+            &::before {
+              content: '';
+              border-right: 1px solid #ccc;
+            }
+          }
+        }
+      }
+    }
+
+    .more { // 탭 매뉴 더보기 버튼
+      position: absolute;
+      top: 50%; right: 0;
+      transform: translateY(-50%); 
+      margin-left: auto;        
+      width: 65px;
+      height: 23px;
+
+      color: $black900;
+      font-weight: bold;
+      border: 1px solid $border-gray100;
+
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-left: 2px;
+        @include sprite(0, -27px);       
+      }
+    }
+  }
+
+  .prod_list { // 상품 리스트
+
+    &[tabindex="-1"]{
+      display: none;
+    }
+
+    &[tabindex="0"]{
+      display: block;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+
+      .prod_item {
+        width: 220px;
+        margin-right: $list-padding;
+        margin-bottom: 60px;
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
+  
+        .img_thumb {
+          display: block;
+        }
+   
+        .prod_info {
+          display: flex;
+          justify-content: space-between;
+  
+          .prod_info_left {
+            display: flex;
+            flex-direction: column;
+            margin-right: 18px;
+            height: 130px;
+            .prod_brand {
+              line-height: 18px;
+              margin: 12px 0;
+  
+              &::before {
+                content: "16SS";
+                display: inline-block;
+                margin-right: 5px;
+                width: 31px;
+                
+                color: #fff;
+                line-height: 14px;
+                text-align: center;
+                background: $gray100;
+              }
+            }
+  
+            .prod_title {
+              line-height: 18px;
+              height: 36px;
+              word-break: break-all;
+              overflow: hidden;
+
+              // @include ellipsis-line2;
+            }
+  
+            .prod_promo {
+              display: inline-block;
+              margin-bottom: 10px;
+              color: $gray200;
+              line-height: 18px;
+            }
+  
+            .price {
+              margin-top: auto;
+              span {
+                line-height: 20px;
+                font-weight: bold;
+                &:nth-child(1){
+                  color: $black500;
+                }
+                &:nth-child(2){
+                  color: $gray150;
+                  text-decoration: line-through;
+                  font-weight: normal;
+                }
+                &:nth-child(3){
+                  color: $aqua;
+                }
+              }
+            }
+          }
+  
+          .prod_info_right {
+            position: relative;
+            width: 26px;
+            .like_btn {
+              position: absolute;
+              top: 42px; right: 0;
+              width: 26px;
+              height: 24px;
+              padding: 0;
+  
+              @include sprite(0, 0);
+              &[aria-pressed="true"] {
+                @include sprite(-30px, 0);
+              }
+            }
+          }
+        }
+      }
+    }
+    
+
+    .more {
+      text-align: center;
+      button {
+        width: 216px;
+        font-size: 14px;
+        line-height: 51px;
+        font-weight: bold;
+        border: 1px solid $border-gray100;
+        span {
+          font-weight: normal;
+          color: $gray300;
+        }
+      }
+    }
+  }
+}

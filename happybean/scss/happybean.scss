@@ -1,0 +1,590 @@
+@import './reset';
+@import './font';
+@import './variables';
+@import './mixin';
+@import './common';
+
+#wrap {
+  width: 100%;
+  min-width: 320px;
+  overflow-x: hidden;
+
+  header {
+    
+    .header_top { // 헤더 상단 영역
+      border-bottom: 1px solid $border-gray;
+      
+      .inner {  
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 44px;
+
+        @extend %container-padding;
+
+        .n_link { // 네이버 로고 링크
+          width: 17px;
+          height: 15px;
+          @include sprite(0, 0);
+        }
+  
+        .hb_link { // 해피빈 로고 링크
+          display: block;
+          width: 61px;
+          height: 23px;
+          @include sprite(0, -16px);
+        }
+  
+        .hb_mypage { // 마이 페이지
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: -0.05em;
+        }
+      }
+    }
+
+    .hb_gnb { // gnb
+      
+      ul {
+        display: flex;
+        justify-content: space-between;    
+        
+        a {
+          display: block;
+          padding: 0 15px;
+
+          font-size: 14px;
+          line-height: 50px;
+          letter-spacing: -0.04rem;
+
+          &[aria-current="true"] {
+            color: $primary;
+            font-weight: bold;
+
+            border-bottom: 2px solid $primary;
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+  }
+
+  .banner { // 배너 영역
+    
+    color: #fff;
+
+    border-bottom: 3px solid $gray200;
+    background: url(../images/banner.png)no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .inner {
+      display: flex;
+      flex-direction: column;
+      padding-top: 25px;
+      padding-bottom: 15px;
+      height: 221px;
+
+      text-align: center;
+      opacity: 0.9;
+      box-sizing: border-box;
+      @extend %container-padding;
+
+      .title { // 배너 타이틀
+        
+        h2 {
+          width: 102px;
+          margin: 0 auto 10px;
+
+          font-size: 14px;
+          line-height: 22px;          
+          border: 1px solid #fff;
+          @extend %letter-spacing-6;
+        }
+
+        strong {
+          font-size: 24px;
+          line-height: 32px;
+
+          @extend %letter-spacing-6;
+          @include multiline-ellipsis(2);
+        }
+      }
+
+      .link { // 배너 중간 링크 영역
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 4px 0 20px;
+
+        a {
+          display: flex;
+          font-size: 14px;
+          @extend %letter-spacing-6;
+
+          &::before { // N 아이콘
+            content: "";
+            display: inline-block;
+            margin-right: 5px;
+            width: 16px;
+            height: 15px;
+
+            @include sprite(0, -39px);
+          }
+        }
+
+        button { // info 버튼
+          margin-left: 5px;
+          width: 16px;
+          height: 15px;
+          @include sprite(-16px, -39px);
+        }
+      }
+
+      .graph { // 그래프 영역
+        margin-top: auto;
+
+        .objective { // 목표 금액
+          font-size: 13px;
+          text-align: right;
+          @extend %letter-spacing-6;
+        }
+
+        .graph_bar { // 그래프 바
+          width: 100%;
+          margin: 5px 0;
+          height: 6px; 
+
+          text-align: left;
+          background: #fff;
+
+          span {
+            display: inline-block;
+            width: 70%;
+            height: 6px;
+            
+            vertical-align: top;
+            background: $primary;
+          }
+        }
+
+        .graph_info { // 그래프 정보
+          position: relative;
+          display: flex;
+          justify-content: center;
+
+          span {
+            color: $gray100;
+            font-size: 14px;
+
+            &.percent {
+              margin-right: auto;
+            }
+
+            &.amount {
+              position: absolute;
+              left: 50%;
+              transform: translateX(-50%);
+
+              em {
+                color: #fff;
+                font-size: 16px;
+                font-weight: bold;
+              }
+            }
+
+            &.date {
+              margin-left: auto;
+              font-size: 13px;
+
+              b {
+                color: #fff;
+                font-size: 14px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .fundraising_tab { // 모금정보 탭 메뉴 영역
+    @extend %container-padding;
+
+    .tab_menu {
+      display: flex;
+
+      .tab_list {
+        flex:1;
+
+        button {
+          padding: 0;
+          width: 100%;
+
+          color: $gray500;
+          font-size: 15px;
+          line-height: 45px;
+          border-bottom: 1px solid $border-gray;
+
+          @extend %letter-spacing-6;
+
+          &[aria-selected="true"] {
+            color: $primary;
+            font-weight: bold;
+            border-bottom: 1px solid $primary;
+          }
+        }
+      }
+    }
+
+    .tab_item { // 탭 메뉴 컨탠츠
+      margin-top: 20px;
+
+      .tab_contents {
+
+        img {
+          margin-bottom: 28px;
+          width: 100%;
+          height: 150px;
+          object-fit: cover;
+        }
+
+        strong {
+          display: block;
+          margin-bottom: 10px;
+          font-weight: bold;
+          font-size: 20px;
+
+          @extend %letter-spacing-6;
+        }
+
+        p {
+          margin-bottom: 22px;
+          font-size: 16px;
+          line-height: 30px;
+
+          @extend %letter-spacing-6;
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .share {
+        margin: 40px 0;
+        text-align: center;
+
+        button {
+          width: 34px;
+          height: 34px;
+          @include sprite(0, -56px);
+        }
+      }
+    }
+  }
+
+  .donation_tab { // 결제 기부 탭 영역
+
+    .tab_menu { // 탭 메뉴
+      display: flex;
+      @extend %container-padding;
+
+      .tab_list { 
+        flex:1;
+        text-align: center;
+      }
+    }
+
+    .tab_item { // 결제기부 탭 컨탠츠
+      
+      fieldset {
+        @extend %container-padding;   
+
+        .hb_input { // 라디오 인풋
+
+          &.radio {
+            padding: 8px 0;
+        
+            label {
+              display: flex;
+              align-items: center;
+              font-size: 15px;
+          
+              @extend %letter-spacing-6;
+          
+              &::before { // 커스텀 체크박스
+                content: "";
+                display: inline-block;
+                margin-right: 3px;
+                width: 21px;
+                height: 21px;
+                @include sprite(-58px, -56px);
+              }
+            }
+          
+            input {
+              display: none;
+          
+              &:checked + label {
+                font-weight: bold;
+          
+                &::before {
+                  @include sprite(-35px, -56px);
+                }
+              }
+            }
+          
+            .desc {
+              color: $gray500;
+              text-indent: 24px;
+              font-size: 14px;
+              line-height: 20px;
+              @extend %letter-spacing-4;
+          
+              span {
+                color: $primary;
+                font-size: 15px;
+                font-weight: bold;
+                @extend %letter-spacing-6;
+              }
+            }
+          }
+        }
+
+        .hb_select_btn { // 셀렉트 버튼
+          position: relative;
+          width: 100%;
+          margin: 8px 0;
+          padding: 10px;
+        
+          text-align: left;
+          color: $primary;
+          font-size: 20px;
+          font-weight: bold;
+          border: 1px solid $border-gray;
+        
+          &::after { // 화살표 아이콘
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%; right: 10px;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 5px;
+        
+            @include sprite(-16px, -90px);
+          }
+        }
+
+        .hb_terms { // 약관동의
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 8px 0;
+        
+          input[type="checkbox"] {
+            display: none;
+        
+            &:checked + label::before {
+              @include sprite(-83px, -16px);
+            }
+          }
+        
+          label {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            
+            &::before {
+              content: "";
+              margin-right: 5px;
+              width: 22px;
+              height: 22px;
+        
+              @include sprite(-61px, -16px);
+            }
+          }
+        
+          a {
+            font-size: 12px;
+            span {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+
+      .donate_amount { // 총 기부액
+        border-top: 1px solid $border-gray;
+        background: $gray50;
+        text-align: right;
+
+        @extend %container-padding;
+
+        p {
+          font-size: 16px;
+          line-height: 45px;
+          font-weight: bold;
+          @extend %letter-spacing-6;
+
+          span {
+            color: $primary;
+            font-size: 17px;
+            @extend %letter-spacing-4;
+          }
+        }
+      }
+
+      .donate_btn { // 기부하기 버튼
+        border: 1px solid $border-gray;
+        background: $gray100;
+
+        @extend %container-padding;
+      }
+    }
+  }
+
+  .donation_details { // 모금함 상세 정보 영역
+
+    details {
+      border-bottom: 1px solid $border-gray;
+      
+      summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 44px;
+
+        font-size: 16px;
+        font-weight: bold;
+        border-bottom: 1px solid $border-gray;
+        
+        @extend %container-padding;
+        @extend %letter-spacing-6;
+
+        &::after {
+          content: "";
+          width: 16px;
+          height: 9px;
+
+          @include sprite(0, -90px);
+        }
+        &::marker {
+          font-size: 0;
+        }        
+      }
+
+      .inner {
+        margin: 10px 0;
+        @extend %container-padding;
+
+        strong {
+          display: block;
+          padding: 10px 0;
+          font-size: 16px;
+          font-weight: bold;        
+            
+          @extend %letter-spacing-4;
+        }
+
+        p {
+          display: flex;
+          justify-content: space-between;
+          padding: 10px 0;
+
+          color: $gray500;
+          font-size: 15px;          
+          @extend %letter-spacing-6;
+
+          span {
+            font-size: 16px;
+            em {
+              padding-right: 3px;
+              color: $primary;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .more_info {
+
+    h2 {
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      text-indent: 15px;
+
+      @extend %letter-spacing-6;
+    }
+
+    .image_swiper { // 관련사진 슬라이더 영역 
+      margin: 15px 0 15px 15px;
+      overflow-x: hidden;
+
+      .swiper-slide {
+        width: 115px !important;
+        height: 85px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .tab_menu { // 하단 탭 메뉴
+      display: flex;
+      border-top: 1px solid $border-gray;
+      border-bottom: 1px solid $border-gray;
+      @extend %container-padding;
+
+      .tab_list {
+        margin: 14px 0;
+        flex: 1;
+
+        &:first-of-type {
+          border-right: 1px solid $border-gray;
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          font-size: 16px;
+          line-height: 20px;
+          font-weight: bold;
+
+          span {
+            padding-left: 5px;
+            font-weight: bold;
+            color: $primary;
+          }
+
+          &::before {
+            content: "";
+            margin-right: 4px;
+            display: inline-block;
+            width: 18px;
+            height: 18px;            
+          }
+
+          &.donate_btn::before {
+            @include sprite(-16px, -100px);
+          }
+
+          &.comment_btn::before {
+            @include sprite(0, -100px);
+          }
+        }
+      }
+    }
+  }
+}
